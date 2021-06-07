@@ -22,14 +22,14 @@ func (cache *Cache) Set(key string, data string) {
 }
 
 // Get is a thread-safe way to lookup items
-// Every lookup, also touches the item, hence extending it's life
-func (cache *Cache) Get(key string) (data string, found bool) {
+// Every lookup, iff touch is true, also touches the item, hence extending it's life
+func (cache *Cache) Get(key string, touch bool) (data string, found bool) {
 	cache.mutex.Lock()
 	item, exists := cache.items[key]
 	if !exists || item.expired() {
 		data = ""
 		found = false
-	} else {
+	} else if touch {
 		item.touch(cache.ttl)
 		data = item.data
 		found = true
