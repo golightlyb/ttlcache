@@ -4,9 +4,11 @@ TTLCache is a minimal wrapper over a string map in golang, entries of which are
 
 1. Thread-safe
 2. Auto-Expiring after a certain time
-3. Auto-Extending expiration on `Get`s
+3. Optionally auto-Extending expiration on `Get`s
 
-[![Build Status](https://travis-ci.org/wunderlist/ttlcache.svg)](https://travis-ci.org/wunderlist/ttlcache)
+#### Forked version changes
+
+Auto-extending expiration is now controlled by a Get parameter
 
 #### Usage
 ```go
