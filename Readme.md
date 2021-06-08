@@ -1,4 +1,6 @@
-## TTLCache - an in-memory LRU cache with expiration
+## TTLCache (fork) - an in-memory LRU cache with expiration
+
+Fork of [microsoftarchive/ttlcache](https://github.com/microsoftarchive/ttlcache)
 
 TTLCache is a minimal wrapper over a string map in golang, entries of which are
 
