@@ -8,19 +8,21 @@ TTLCache is a minimal wrapper over a string map in golang, entries of which are
 
 #### Forked version changes
 
-Auto-extending expiration is now controlled by a Get parameter
+* Auto-extending expiration is now controlled by a Get parameter
+* Items may contain any value, not only strings
 
 #### Usage
 ```go
 import (
   "time"
-  "github.com/wunderlist/ttlcache"
+  "github.com/golightlyb/ttlcache"
 )
 
 func main () {
   cache := ttlcache.NewCache(time.Second)
-  cache.Set("key", "value")
-  value, exists := cache.Get("key")
+  cache.Set("key", "any value (interface{})")
+  updateTTL := false
+  value, exists := cache.Get("key", updateTTL)
   count := cache.Count()
 }
 ```
